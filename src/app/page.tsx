@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -14,7 +15,6 @@ const Splash = () => {
 
   return (
     <div>
-      {/* Your splash screen content */}
       <h1>Splash Screen</h1>
       <p>Loading...</p>
     </div>
