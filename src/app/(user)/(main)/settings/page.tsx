@@ -15,7 +15,7 @@ import Alert from "./components/Alert";
 const page = () => {
   return (
     <div className="w-full h-screen flex flex-col overflow-y-scroll mb-8">
-      <div className="flex items-center mt-8 h-10 px-5 ">
+      <div className="flex items-center py-8 h-10 px-5  ">
         <MdOutlineDirectionsRun className="text-3xl text-[#f64d41] " />
         <p className="flex justify-center flex-1 font-bold pr-7 text-xl">
           Settings
@@ -35,12 +35,12 @@ const page = () => {
       </div>
       <div className="flex flex-col justify-center my-7 mx-4 ">
         <Link href="/analytics">
-          <div className="flex  items-center justify-between py-4  hover:bg-grey- ">
+          <div className="flex  items-center justify-between my-2 py-4 bg-[#fbebd8] rounded-2xl ">
             <div className="px-2 text-xl text-[#f64d41]">
               <GrAnalytics />
             </div>
             <p className="px-6 text-md ">Data & Analytics</p>
-            <div className="ml-3">
+            <div className="mr-3 ">
               <MdNavigateNext />
             </div>
           </div>
@@ -53,54 +53,54 @@ const page = () => {
           button2={"Dark"}
           className={"bg-black text-white"}
           component={
-            <div className="flex  items-center cursor-pointer justify-between my-4">
+            <div className="flex  items-center cursor-pointer justify-between my-2 py-4 bg-[#fbebd8] rounded-2xl">
               <div className="px-2 text-xl text-[#f64d41]">
                 <FaRegEye />
               </div>
               <p className="px-6 text-md ">Themes</p>
-              <div className="ml-3">
+              <div className="mr-3">
                 <MdNavigateNext />
               </div>
             </div>
           }
         />
 
-        <div className="flex  items-center justify-between my-4">
+        <div className="flex  items-center justify-between my-2 py-4 bg-[#fbebd8] rounded-2xl">
           <div className="px-2 text-xl text-[#f64d41]">
             <MdOutlinePayments />
           </div>
           <p className="px-6 text-md ">Payments & Subscription</p>
-          <div className="ml-3">
+          <div className="mr-3">
             <MdNavigateNext />
           </div>
         </div>
 
-        <div className="flex  items-center justify-between my-4">
+        <div className="flex  items-center justify-between my-2 py-4 bg-[#fbebd8] rounded-2xl">
           <div className="px-2 text-xl text-[#f64d41]">
             <MdOutlinePrivacyTip />
           </div>
           <p className="px-6 text-md ">Privacy & Policy</p>
-          <div className="ml-3">
+          <div className="mr-3">
             <MdNavigateNext />
           </div>
         </div>
 
-        <div className="flex  items-center justify-between my-4">
+        <div className="flex  items-center justify-between my-2 py-4 bg-[#fbebd8] rounded-2xl">
           <div className="px-2 text-xl text-[#f64d41]">
             <IoMdHelpCircleOutline />
           </div>
           <p className="px-6 text-md ">Help & Support</p>
-          <div className="ml-3">
+          <div className="mr-3">
             <MdNavigateNext />
           </div>
         </div>
 
-        <div className="flex  items-center justify-between my-4">
+        <div className="flex  items-center justify-between my-2 py-4 bg-[#fbebd8] rounded-2xl">
           <div className="px-2 text-xl  text-black-700">
             <FcAbout />
           </div>
           <p className="px-6 text-md ">About Us</p>
-          <div className="ml-3">
+          <div className="mr-3">
             <MdNavigateNext />
           </div>
         </div>
@@ -112,7 +112,7 @@ const page = () => {
           button2={"Logout"}
           className={"bg-[#f64d41]"}
           component={
-            <div className="flex cursor-pointer items-center my-4">
+            <div className="flex cursor-pointer items-center my-2 py-4 bg-[#fbebd8] rounded-2xl">
               <div className="px-2 text-xl text-[#f64d41]">
                 <FiLogOut />
               </div>
