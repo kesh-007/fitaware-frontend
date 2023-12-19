@@ -59,7 +59,7 @@ const StepCounts = () => {
 
         updateCounter();
     };
-    localStorage.setItem('stepCount', stepcounts.toString());
+    window.localStorage.setItem('stepCount', stepcounts.toString());
 
 
     return (
