@@ -8,6 +8,7 @@ import {
   } from "@/components/ui/avatar"
 import { IoIosNotificationsOutline } from 'react-icons/io';
   // import { IoIosNotificationsOutline } from "react-icons/io";
+  import { useSearchParams } from 'next/navigation'
 
   
 
@@ -15,6 +16,9 @@ const Header = () => {
   const cookies = new Cookies();
   const [name,setName] = useState('')
   const[url,setUrl] = useState('') 
+  const searchParams = useSearchParams()
+ 
+
 
   useEffect(() => {
     const storedAccessToken = cookies.get('accessToken');
@@ -22,6 +26,14 @@ const Header = () => {
     const displayName=cookies.get('displayName');
     const profileUrl=cookies.get('profilePhotoUrl');
     const userID = cookies.get('userID');
+    const search:any = searchParams.get('data')
+    const token_data = JSON.parse(search) 
+    console.log(search,"ayooo emmmaa appppa");
+
+
+    alert(`${search}`)
+    console.log(JSON.parse(search),"IDu dan search dii gundu pooosini")
+
     const currentDate = new Date();
 const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days in milliseconds
 //cookies.set('accessToken', storedAccessToken, { path: '/', expires: expirationDate });
@@ -30,12 +42,12 @@ const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000
 
     cookies.set("token",
     {
-      accestoken:storedAccessToken,
-      refreshtoken:storedRefreshToken,
+      accestoken:token_data.accestoken,
+      refreshtoken:token_data.refreshdata,
       profile:{
-        displayName:displayName,
-        profilePhotoUrl:profileUrl,
-        userID:userID
+        displayName:token_data.displayName,
+        profilePhotoUrl:token_data.profileUrl,
+        userID:token_data.userID
       }
     },{ path: '/', expires: expirationDate })
 
