@@ -21,7 +21,8 @@ export default function LoginCard() {
   },[])
   async function Login()
   {
-    const data = await loginApi();
+    const data:any = await loginApi();
+    console.log(data['authUrl'],"Login page la data ena dan iruko")
     console.log(data.authUrl)
     window.location.href=data.authUrl
   }

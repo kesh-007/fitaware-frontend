@@ -1,16 +1,25 @@
-const url= 'https://07bb-103-191-91-174.ngrok-free.app'
+const url = 'https://07bb-103-191-91-174.ngrok-free.app'
+
+const url1 = 'http://localhost:8000'
 
 export const loginApi = async () => {
     try {
+      console.log('LoginApi called'); 
       const response = await fetch(`${url}/auth/google`, {
         method: "GET",
-        headers: { 'Content-type': 'application/json' },
+        headers: {
+           'Content-type': 'application/json',
+           'ngrok-skip-browser-warning': 'true',
+ 
+          },
       });
-  
+      console.log(response,"wattta data da")
+
       if (!response.ok) {
         throw new Error('Network Error');
       }
-  
+    
+
       const data = await response.json();
       return data;
     } catch (error) {
@@ -24,7 +33,11 @@ export const loginApi = async () => {
     try {
       const response = await fetch(`${url}/auth/fetch-data`, {
         method: "POST",
-        headers: { 'Content-type': 'application/json' },
+        headers: { 
+          'Content-type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
+
+         },
         body: JSON.stringify({ access_token, refresh_token })
       });
   
@@ -47,7 +60,11 @@ export const loginApi = async () => {
     try {
       const response = await fetch(`${url}/auth/fetch-all`, {
         method: "POST",
-        headers: { 'Content-type': 'application/json' },
+        headers: { 
+          'Content-type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
+
+         },
         body: JSON.stringify({ access_token, refresh_token })
       });
   
@@ -69,7 +86,11 @@ export const loginApi = async () => {
     try {
       const response = await fetch(`${url}/walkathon/select`, {
         method: "POST",
-        headers: { 'Content-type': 'application/json' },
+        headers: { 
+          'Content-type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
+
+         },
         body: JSON.stringify({ userid })
       });
   
@@ -91,7 +112,11 @@ export const AddEnrollments = async(userid:string,gameid:string) => {
     try {
       const response = await fetch(`${url}/enrollment/add-enrollment`, {
         method: "POST",
-        headers: { 'Content-type': 'application/json' },
+        headers: { 
+          'Content-type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',
+
+         },
         body: JSON.stringify({ userid,gameid })
       });
   
@@ -112,7 +137,11 @@ export const AlreadyEnrollments = async(userid:string,gameid:string) => {
   try {
     const response = await fetch(`${url}/enrollment/already-enrollment`, {
       method: "POST",
-      headers: { 'Content-type': 'application/json' },
+      headers: { 
+        'Content-type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+
+       },
       body: JSON.stringify({ userid,gameid })
     });
 
@@ -137,7 +166,11 @@ export const PostUserDetail=async(user_id: string,user_name: string,age: number,
   try {
     const response = await fetch(`${url}/users/insert`, {
       method: "POST",
-      headers: { 'Content-type': 'application/json' },
+      headers: {
+         'Content-type': 'application/json',
+         'ngrok-skip-browser-warning': 'true',
+
+         },
       body: JSON.stringify({ user_id,user_name,age, gender, img_url, name,step_count })
     });
 
@@ -159,7 +192,11 @@ export const GetWalkSteps7=async(access_token:string,refresh_token:string) => {
   try {
     const response = await fetch(`${url}/auth/fetch-data-days`, {
       method: "POST",
-      headers: { 'Content-type': 'application/json' },
+      headers: { 
+        'Content-type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+
+       },
       body: JSON.stringify({ access_token,refresh_token,num:7 })
     });
 
@@ -183,7 +220,11 @@ export const ScheduleWalkathonApi=async(form:any) => {
   try {
     const response = await fetch(`${url}/walkathon/insert`, {
       method: "POST",
-      headers: { 'Content-type': 'application/json' },
+      headers: {
+         'Content-type': 'application/json' ,
+         'ngrok-skip-browser-warning': 'true',
+
+        },
       body: JSON.stringify(form)
     });
 
@@ -207,7 +248,11 @@ export const GetWalkathonResults=async(name:string) => {
   try {
     const response = await fetch(`${url}/walkathon/select-admin`, {
       method: "POST",
-      headers: { 'Content-type': 'application/json' },
+      headers: { 
+        'Content-type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+
+       },
       body: JSON.stringify({name})
     });
 
@@ -233,7 +278,11 @@ export const GetWalkathonAdmin=async() => {
   try {
     const response = await fetch(`${url}/walkathon/view-walkathon`, {
       method: "POST",
-      headers: { 'Content-type': 'application/json' },
+      headers: { 
+        'Content-type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+
+       },
     });
 
 
