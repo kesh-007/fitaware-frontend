@@ -2,7 +2,7 @@
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import React, { useEffect } from 'react';
 import { TestCard } from './TestCard';
-import Link from 'next/Link'
+import Link from 'next/link'
 import { GetWalkathonResults } from '@/api';
 
 
