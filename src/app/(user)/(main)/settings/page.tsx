@@ -11,12 +11,13 @@ import { FaRegEye } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import Link from "next/link";
 import Alert from "./components/Alert";
+import { IoChevronBackOutline } from "react-icons/io5";
 
 const page = () => {
   return (
     <div className="w-full h-screen flex flex-col overflow-y-scroll mb-8">
-      <div className="flex items-center py-8 h-10 px-5  ">
-        <MdOutlineDirectionsRun className="text-3xl text-[#f64d41] " />
+      <div className="flex items-center py-8 h-10 px-5 mt-5  ">
+        <IoChevronBackOutline  className="text-xl text-black " />
         <p className="flex justify-center flex-1 font-bold pr-7 text-xl">
           Settings
         </p>
