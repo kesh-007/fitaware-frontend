@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { AdminTypeSelection } from "./AdminTypeSelection";
-const page = () => {
+const Page = () => {
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -13,7 +13,7 @@ const page = () => {
 
   const [suc, setSuc] = useState(false);
 
-  const hassubmit = async (e) => {
+  const hassubmit = async (e:any) => {
     e.preventDefault();
     setSuc(true);
     setTimeout(() => {
@@ -97,4 +97,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

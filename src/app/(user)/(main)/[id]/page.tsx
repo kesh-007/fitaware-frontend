@@ -42,19 +42,19 @@ export default function Registeration({params}:{params:any}){
         rule : "Prioritize safety by following proper form and guidelines during exercises."
     },
     {
-        id : 1,
+        id : 2,
         rule : "Respect fellow players, fostering a positive and supportive fitness community."
     },
     {
-        id : 1,
+        id : 3,
         rule : "Adhere to fair play principles and discourage cheating for a genuine gaming experience."
     },
     {
-        id : 1,
+        id : 4,
         rule : "Stay hydrated and be mindful of your physical limits while participating."
     },
     {
-        id : 1,
+        id : 5,
         rule : "Report any concerns about inappropriate content or behavior for a healthier gaming environment"
     },
 ]
@@ -71,7 +71,7 @@ export default function Registeration({params}:{params:any}){
             <h1 className="text-center p-2 text-xl font-bold">Rules to be followed</h1>
 
           {rules.map((rule) => (
-            <div  className="flex space-y-2  p-2 items-center justify-start space-x-2">
+            <div key={rule.id} className="flex space-y-2  p-2 items-center justify-start space-x-2">
               <div className="w-1 h-1 bg-black rounded-full"></div>
               <p className="text-sm font-semibold text-gray-700">{rule.rule}</p>
             </div>

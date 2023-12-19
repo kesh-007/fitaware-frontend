@@ -24,7 +24,7 @@ function Avatar(){
 
 }
 
-export default function PostCard(props){
+export default function PostCard(props:any){
 
     return (
         <div className="px-4">

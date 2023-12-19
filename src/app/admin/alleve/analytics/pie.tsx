@@ -9,7 +9,7 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 
-export default function Pie({data}) {
+export default function Pie({data}:{data:any}) {
   return (
     <Card className='border-gray-200 border pb-2'>
       <CardHeader className='text-center font-semibold text-xl'>Users Gender Ratio </CardHeader>

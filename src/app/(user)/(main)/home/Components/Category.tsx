@@ -55,7 +55,7 @@ export default function Category() {
       }}
     >
       {data.map((item) => (
-        <Card orientation="horizontal" size="sm" key={item.title} variant='outline'>
+        <Card orientation="horizontal" size="sm" key={item.title} >
           <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
             <img
               className='h-[10rem] w-[10rem] '

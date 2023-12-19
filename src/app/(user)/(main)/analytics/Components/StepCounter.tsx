@@ -4,10 +4,10 @@ import  Cookies  from 'universal-cookie';
 
 
 const StepCounter = () => {
-    const [stepCount,setStepCounts] = useState(localStorage.getItem('stepCount'));
+    const [stepCount,setStepCounts] = useState('');
     useEffect(() => {
       const timeout = setTimeout(() => {
-          const updatedStepCount = localStorage.getItem('stepCount');
+          const updatedStepCount = localStorage.getItem('stepCount')||'';
           setStepCounts(updatedStepCount);
       }, 3000);
 

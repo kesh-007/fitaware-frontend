@@ -8,7 +8,7 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-export default function Pie2({data}) {
+export default function Pie2({data}:{data:any}) {
   return (
     <Card className='border-gray-200 border '>
       <CardHeader className='text-center font-semibold text-lg'>Contest Participant Ratio </CardHeader>

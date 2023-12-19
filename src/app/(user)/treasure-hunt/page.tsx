@@ -54,7 +54,7 @@ export default function TreasureHunt(){
       {/* <div className="flex flex-[0.15] bg-gray-300"/> */}
       
       <div className="pb-5">
-        <ProgressCharts stepsCount={45} weight={65} calories={1024}/>
+        <ProgressCharts />
         <Steps 
           progress = {progress}
           hints={hints}

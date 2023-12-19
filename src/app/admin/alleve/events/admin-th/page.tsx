@@ -19,7 +19,7 @@ function Page() {
   const [prc, setprc] = useState("");
   const [suc, setSuc] = useState(false);
 
-  const hassubmit = async (e) => {
+  const hassubmit = async (e:any) => {
     e.preventDefault();
     const dat = {
       ct: "TreasureHunt",

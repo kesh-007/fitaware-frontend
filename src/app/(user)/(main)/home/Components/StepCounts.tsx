@@ -59,7 +59,13 @@ const StepCounts = () => {
 
         updateCounter();
     };
+
+    useEffect(() => {
+        
     localStorage.setItem('stepCount', stepcounts.toString());
+
+
+    },[])
 
 
     return (

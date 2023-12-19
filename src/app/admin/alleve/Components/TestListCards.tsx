@@ -17,7 +17,7 @@ const TestListCards = (props: any) => {
         <ScrollArea className="px-4">
           <div className="grid grid-cols-4 gap-4 mx-5 max-md:grid-cols-1">
             {data.map((item:any, index:any) => (
-                            <Link href={`/admin/alleve/analytics/${item.slug}`}>
+                            <Link key={index} href={`/admin/alleve/analytics/${item.slug}`}>
 
               <TestCard
                 key={index} 

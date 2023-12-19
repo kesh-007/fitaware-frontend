@@ -11,7 +11,7 @@ import {
   import { LineChart } from '@mui/x-charts/LineChart';
 
 
-  export default function Line({data}) {
+  export default function Line({data}:{data:any}) {
 
     const xLabels = [
         'july',

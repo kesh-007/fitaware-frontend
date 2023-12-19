@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-const Splash = () => {
+const Page = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const Splash = () => {
   );
 };
 
-export default Splash;
+export default Page;

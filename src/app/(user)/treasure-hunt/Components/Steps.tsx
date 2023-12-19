@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { useEffect, useState } from "react";
 
 
-export default function Steps({progress , hints}){
+export default function Steps({progress , hints}:{progress:any, hints:any}){
     const [currentSlide, setCurrentSlide] = useState(0);
     const totalSlides = 5;
 

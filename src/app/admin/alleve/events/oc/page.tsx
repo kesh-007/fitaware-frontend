@@ -23,16 +23,7 @@ function Page() {
   const [suc,setSuc]=useState(false)
 
 
-  const hassubmit = async (e) => {
-    e.preventDefault(); 
-    const res= await axios.post('/api',indat)
-  if(res.status==200){
-    setSuc(true)
-    
-    setTimeout(()=>{setSuc(false); },3000)
-    
-    
-  }
+  const hassubmit = async (e:any) => {
   };
   
   return <>

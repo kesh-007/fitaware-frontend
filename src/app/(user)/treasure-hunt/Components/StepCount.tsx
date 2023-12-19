@@ -36,7 +36,7 @@ function CircularProgressWithLabel(
   );
 }
 
-export default function StepCount({progress}) {
+export default function StepCount({progress}:{progress:any}) {
   
 
   return <CircularProgressWithLabel value={progress} />;
