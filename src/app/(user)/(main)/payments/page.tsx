@@ -8,7 +8,8 @@ import Link from "next/link";
 
 const page = () => {
     return (
-        <div className="flex flex-col items-center h-screen overflow-y-scroll">
+        <div className="flex flex-col items-center h-screen overflow-y-scroll bg-white">
+            <div className="mx-3">
             <div className="w-full flex items-center py-6 px-5">
                 <IoChevronBackOutline />
                 
@@ -101,6 +102,7 @@ const page = () => {
                         Get Started
                     </button>
                     </Link>
+                </div>
                 </div>
             </div>
         </div>
