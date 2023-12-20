@@ -18,46 +18,58 @@ const Header = () => {
   const[url,setUrl] = useState('') 
   const searchParams = useSearchParams()
  
+async function getProfileData() {
+    const search:any = await searchParams.get('data')
+  const token_data = await JSON.parse(search) 
+  console.log(token_data,"token data")
+
+  console.log(token_data,"Token data")
+
+
+  
+
+
+
+  const currentDate = new Date();
+const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000); // 
+
+
+  if(token_data)
+  {
+
+  await cookies.set("token",
+  {
+    accestoken:token_data.accestoken,
+    refreshtoken:token_data.refreshtoken,
+    profile:{
+      displayName:token_data.displayName,
+      profilePhotoUrl:token_data.profileUrl,
+      userID:token_data.userID
+    }
+  },{ path: '/', expires: expirationDate })
+
+  }
+
+}
+
 
 
   useEffect(() => {
-    const storedAccessToken = cookies.get('accessToken');
-    const storedRefreshToken = cookies.get('refreshToken');
-    const displayName=cookies.get('displayName');
-    const profileUrl=cookies.get('profilePhotoUrl');
-    const userID = cookies.get('userID');
-    const search:any = searchParams.get('data')
-    const token_data = JSON.parse(search) 
-    console.log(search,"ayooo emmmaa appppa");
+    getProfileData();
 
-
-    alert(`${search}`)
-    console.log(JSON.parse(search),"IDu dan search dii gundu pooosini")
-
-    const currentDate = new Date();
-const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days in milliseconds
-//cookies.set('accessToken', storedAccessToken, { path: '/', expires: expirationDate });
-    if(!cookies.get('token') )
-    {
-
-    cookies.set("token",
-    {
-      accestoken:token_data.accestoken,
-      refreshtoken:token_data.refreshdata,
-      profile:{
-        displayName:token_data.displayName,
-        profilePhotoUrl:token_data.profileUrl,
-        userID:token_data.userID
-      }
-    },{ path: '/', expires: expirationDate })
-
-    }
-  }, []);
-  useEffect(()=>{
     const token = cookies.get('token');
+    console.log(token,"idu dan da tokennnnnnnnnnn")
     setName(token.profile.displayName)
     setUrl(token.profile.profilePhotoUrl)
-  },[])
+
+
+
+  }, []);
+
+
+
+
+  
 
   return (
     <div className='p-3 mb-15 pt-3'>

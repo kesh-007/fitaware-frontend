@@ -1,4 +1,4 @@
-const url = 'https://07bb-103-191-91-174.ngrok-free.app'
+const url = 'https://c3a6-103-191-91-174.ngrok-free.app'
 
 const url1 = 'http://localhost:8000'
 
