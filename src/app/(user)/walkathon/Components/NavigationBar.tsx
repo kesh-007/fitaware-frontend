@@ -1,14 +1,12 @@
-
 "use client"
-
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import { HiDotsVertical } from "react-icons/hi";
 import Link from "next/link";
 import  Cookies  from 'universal-cookie';
 import { useEffect, useId, useState } from "react";
-import { PostUserDetail } from "@/api";
+import { PostUserDetail, SuperMassPosition } from "@/api";
 import { Button } from "@/components/ui/button";
-
+import toast,{Toaster} from "react-hot-toast";
 
 export default function NavigationBar({name,style}:{name:string,style:string}){
 
@@ -17,13 +15,21 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
     const [url,setUrl] = useState('');
     const [userid,Setuserid] = useState('');
     console.log(name,"Name of the test")
-    const [stepcount,setStepcount] = useState(localStorage.getItem('stepcounts')||0);
+    const stri = localStorage.getItem('stepcounts') || ''
+    const value = parseInt(stri, 10);
+    const [stepcount, setStepcount] = useState(0);
     const [token,SetToken] = useState({})
     const [record,toRecord] = useState(true)
     const email = localStorage.getItem('email')||'';
 
+
+
     console.log(localStorage.getItem('stepcounts'),"Step Count")
     useEffect(()=>{
+         SuperMassPosition(email).then((data)=>{            
+            console.log("Position",data)
+            toast.success(`${data.position} is your new place 🚀`)
+         })
 
 
     },[])
@@ -51,6 +57,7 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
 
     return (
         <div>
+            <Toaster/>
         <div className="flex justify-between p-5 font-bold text-black">
             <Link href={'/search'}>
 

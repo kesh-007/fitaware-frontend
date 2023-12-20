@@ -20,6 +20,8 @@ const Page = ({ params }: { params: any }) => {
 
     GetWalkathonResults(cvalue).then((data:any)=>{
       console.log(data,"Data")
+      data.sort((a:any, b:any) => b.stepcounts - a.stepcounts);
+
       SetData(data)
     })
     

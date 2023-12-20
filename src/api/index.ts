@@ -240,3 +240,33 @@ export const GetWalkathonAdmin=async() => {
       console.log(err);
     }
 }
+
+
+
+export const SuperMassPosition=async(email:string) => {
+
+  try {
+    const response = await fetch(`${url}/users/supermass`, {
+      method: "POST",
+      headers: { 
+        'Content-type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+
+       },
+       body: JSON.stringify({email})
+    });
+
+
+    if (!response.ok) {
+      throw new Error('Network Error');
+    }
+    const data = await response.json(); 
+    console.log(data,"position")
+    return data;
+
+  }
+    catch(err) {
+
+      console.log(err);
+    }
+}
