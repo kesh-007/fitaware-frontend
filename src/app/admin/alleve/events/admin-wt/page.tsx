@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { ScheduleWalkathonApi } from '@/api';
+import toast ,{Toaster} from 'react-hot-toast';
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,8 @@ const Page = () => {
 
   const ScheduleWalkathon = async() => {
     ScheduleWalkathonApi(formData).then((res:any) => {
-      console.log(res,"idula ena iruku")
+      console.log(res,"res ena ")
+      toast.success("Scheduled Walkathon Successfully")
 
     })
 
@@ -44,6 +46,7 @@ const Page = () => {
 
   return (
     <div className="border border-gray-200 p-4 rounded-md">
+      <Toaster/>
       <div className="flex gap-5">
         <div>
           <Label htmlFor="name">Name</Label>

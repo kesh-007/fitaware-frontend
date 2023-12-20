@@ -19,7 +19,7 @@ const Page = ({ params }: { params: any }) => {
   useEffect(()=>{
 
     GetWalkathonResults(cvalue).then((data:any)=>{
-      console.log(data,'ada ommlaa')
+      console.log(data,"Data")
       SetData(data)
     })
     

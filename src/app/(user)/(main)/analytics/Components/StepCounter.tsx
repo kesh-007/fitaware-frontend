@@ -7,7 +7,7 @@ const StepCounter = () => {
     const [stepCount,setStepCounts] = useState('');
     useEffect(() => {
       const timeout = setTimeout(() => {
-          const updatedStepCount = localStorage.getItem('stepCount')||'';
+          const updatedStepCount = localStorage.getItem('stepcounts')||'';
           setStepCounts(updatedStepCount);
       }, 3000);
 

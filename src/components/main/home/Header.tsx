@@ -9,63 +9,48 @@ import {
 import { IoIosNotificationsOutline } from 'react-icons/io';
   // import { IoIosNotificationsOutline } from "react-icons/io";
   import { useSearchParams } from 'next/navigation'
+import { GetWalkSteps } from '@/api';
+import { MdAccountCircle } from "react-icons/md";
+
 
   
 
 const Header = () => {
-  const cookies = new Cookies();
-  const [name,setName] = useState('')
-  const[url,setUrl] = useState('') 
-  const searchParams = useSearchParams()
- 
-async function getProfileData() {
-    const search:any = await searchParams.get('data')
-  const token_data = await JSON.parse(search) 
-  console.log(token_data,"token data")
-
-  console.log(token_data,"Token data")
-
-
+  const [email,setEmail] = useState('')
+  const [stepcounts,stepcountsSet] = useState(0)
   
 
-
-
-  const currentDate = new Date();
-const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000); // 
-
-
-  if(token_data)
-  {
-
-  await cookies.set("token",
-  {
-    accestoken:token_data.accestoken,
-    refreshtoken:token_data.refreshtoken,
-    profile:{
-      displayName:token_data.displayName,
-      profilePhotoUrl:token_data.profileUrl,
-      userID:token_data.userID
-    }
-  },{ path: '/', expires: expirationDate })
-
-  }
-
-}
-
-
-
+  const [results,setResults] = useState('')
   useEffect(() => {
-    getProfileData();
 
-    const token = cookies.get('token');
-    console.log(token,"idu dan da tokennnnnnnnnnn")
-    setName(token.profile.displayName)
-    setUrl(token.profile.profilePhotoUrl)
+    setEmail(localStorage.getItem('email')||'')
+    getUserData()
+
+    const interval = setInterval(() => {
+      getUserData()
+
+  }, 1500);
+
+  return () => {
+      clearInterval(interval); 
+  };
+
+    
 
 
 
   }, []);
 
+  async function getUserData(){
+    const result = await GetWalkSteps(await localStorage.getItem('email')||'')
+    console.log(result.stepcounts,'result')
+    setResults(result)
+    localStorage.setItem('stepcounts',result.stepcounts)
+    stepcountsSet(result.stepcounts)
+
+
+
+  }
 
 
 
@@ -78,7 +63,7 @@ const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000
 
             
      <div>
-        <h1 className=' text-gray-500'>Hello {name}</h1>
+        <h1 className=' text-gray-500'>Hello {email}</h1>
         {/* <h1 className='text-sm font-bold'>Ready to play?</h1> */}
 
     </div>
@@ -86,13 +71,9 @@ const expirationDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000
 
     </div>
 
-    <div className='bg-gray-200  rounded-full p-1 w-10 h-10 flex items-center justify-center'>
-  <IoIosNotificationsOutline size={24} /> 
-      <Avatar>
-          <AvatarImage src={`${url}`} alt={`${name}`} />
-          <AvatarFallback>{name}</AvatarFallback>
-      </Avatar>
-    </div>
+
+  <MdAccountCircle size={27}/>
+
 
 
     </div>

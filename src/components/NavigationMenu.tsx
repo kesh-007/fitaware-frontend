@@ -16,10 +16,10 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Profile",
-    href: "/admin/profile",
+    title: "Walkathon Schedule",
+    href: "/admin/alleve/events/admin-wt",
     description:
-      "To change the password",
+      "To host walkathon competitions",
   },
   {
     title: "Compare Tests",
@@ -46,7 +46,7 @@ export function HeaderComponent() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-        <Link href="/admin" legacyBehavior passHref>
+        <Link href="/admin/alleve" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Home
             </NavigationMenuLink>

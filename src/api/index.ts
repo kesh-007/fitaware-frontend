@@ -1,86 +1,54 @@
-const url = 'https://c3a6-103-191-91-174.ngrok-free.app'
+const url = 'https://a5d3-103-191-91-174.ngrok-free.app'
 
 const url1 = 'http://localhost:8000'
 
-export const loginApi = async () => {
-    try {
-      console.log('LoginApi called'); 
-      const response = await fetch(`${url}/auth/google`, {
-        method: "GET",
-        headers: {
-           'Content-type': 'application/json',
-           'ngrok-skip-browser-warning': 'true',
- 
-          },
-      });
-      console.log(response,"wattta data da")
+export const loginApi = async (email:string,password:string) => {
+  try {
+    const response = await fetch(`${url}/mobile/login`, {
+      method: "POST",
+      headers: {
+         'Content-type': 'application/json',
+         'ngrok-skip-browser-warning': 'true',
 
-      if (!response.ok) {
-        throw new Error('Network Error');
-      }
-    
+        },
+        body:JSON.stringify({email,password})
+    });
 
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error in loginApi:', error);
-      throw error; 
-    }
+  
+
+    const data = await response.json();
+    console.log(data,"Idu enga data va iruku");
+    return data;
+  } catch (error) {
+    console.error('Error in loginApi:', error);
+    throw error; 
   }
+}
 
+export const GetWalkSteps = async (email:string) => {
+  try {
+    const response = await fetch(`${url}/mobile/view`, {
+      method: "POST",
+      headers: {
+         'Content-type': 'application/json',
+         'ngrok-skip-browser-warning': 'true',
 
-  export const FetchStepCounts = async (access_token:any, refresh_token:any) => {
-    try {
-      const response = await fetch(`${url}/auth/fetch-data`, {
-        method: "POST",
-        headers: { 
-          'Content-type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
+        },
+        body:JSON.stringify({email})
+    });
 
-         },
-        body: JSON.stringify({ access_token, refresh_token })
-      });
   
-      if (!response.ok) {
-        throw new Error('Network Error');
-      }
-  
-      const data = await response.json(); 
-      console.log(data, "Response"); 
-  
-      return data;
-    } catch (error) {
-      console.error('Error in FetchStepCounts:', error);
-      throw error;
-    }
+
+    const data = await response.json();
+    console.log(data,"Idu enga data va iruku");
+    return data;
+  } catch (error) {
+    console.error('Error in loginApi:', error);
+    throw error; 
   }
-  
+}
 
-  export const FetchAllData = async (access_token:string, refresh_token:string) => {
-    try {
-      const response = await fetch(`${url}/auth/fetch-all`, {
-        method: "POST",
-        headers: { 
-          'Content-type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',
 
-         },
-        body: JSON.stringify({ access_token, refresh_token })
-      });
-  
-      if (!response.ok) {
-        throw new Error('Network Error');
-      }
-  
-      const data = await response.json(); 
-      console.log(data, "Response"); 
-  
-      return data;
-    } catch (error) {
-      console.error('Error in FetchStepCounts:', error);
-      throw error;
-    }
-  }
 
   export const FetchWalkathon = async (userid:string) => {
     try {
@@ -187,32 +155,6 @@ return response;
 }
 
 
-export const GetWalkSteps7=async(access_token:string,refresh_token:string) => {
-
-  try {
-    const response = await fetch(`${url}/auth/fetch-data-days`, {
-      method: "POST",
-      headers: { 
-        'Content-type': 'application/json',
-        'ngrok-skip-browser-warning': 'true',
-
-       },
-      body: JSON.stringify({ access_token,refresh_token,num:7 })
-    });
-
-
-    if (!response.ok) {
-      throw new Error('Network Error');
-    }
-    const data = await response.json(); 
-    return data;
-
-  }
-    catch(err) {
-
-      console.log(err);
-    }
-}
 
 
 export const ScheduleWalkathonApi=async(form:any) => {

@@ -10,12 +10,15 @@ import toast, { Toaster } from 'react-hot-toast';
 export default function Registeration({params}:{params:any}){
     const cookies = new Cookies();
     const token = cookies.get('token');
+    const email = localStorage.getItem('email')||'';
     const router = useRouter();
     const [text,SetText]= useState('Register')
     const [isdisabled,SetisDisabled]= useState(false)
 
     useEffect(() => {
-        AlreadyEnrollments(token.profile.userID,params.id).then((res:any)=>{
+      alert(`${email}`)
+        AlreadyEnrollments(email,params.id).then((res:any)=>{
+          console.log(res,'idu necxt')
             const result = res.map((ress:any) => ress.gameid === params.id).includes(true);
             console.log(result,"aypop ebba")
             if (result)
@@ -29,8 +32,8 @@ export default function Registeration({params}:{params:any}){
 
   async function handleRegister(){
         toast.success('Registered Successfully')
-        console.log("Registered Successfully",token.profile.userID);
-        await AddEnrollments(token.profile.userID,params.id)
+       // console.log("Registered Successfully",token.profile.userID);
+        await AddEnrollments(email,params.id)
         router.push('/search')
 
         

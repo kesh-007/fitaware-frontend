@@ -40,7 +40,7 @@ const Page = () => {
   ];
   return (
     <div className='bg-white h-screen'>
-      <Slideshow images={images} className='h-[80vh]'/>
+      <Slideshow images={images} className='h-[65 vh]'/>
       <div>
   
       <LoginCard />

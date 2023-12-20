@@ -13,7 +13,7 @@ import {DATA} from "../data/dummy";
 
 export default function DataTable({data}:{data:any}){
 
-    const table_heading = ["User ID" , "User Name" , "Age" , "Gender","Step Count","Calories Burnt"];
+    const table_heading = ['email'];
 
     return (
       

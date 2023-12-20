@@ -4,7 +4,6 @@ import { FaFireFlameCurved } from "react-icons/fa6";
 import { IoFootstepsSharp } from "react-icons/io5";
 import { FaWeightScale } from "react-icons/fa6";
 import { useEffect, useState } from "react";
-import { FetchAllData } from "@/api";
 import Cookies from 'universal-cookie';
 
 function StepsCard({value}:{value:number}){
@@ -74,12 +73,12 @@ export default function ProgressCharts(){
     const [weight,setWeight] = useState(0);
 
     useEffect(() => {
+        const stepCount = parseInt(localStorage.getItem('stepcounts') || '0', 10);
 
-    FetchAllData(token.accestoken, token.refreshtoken).then((res) => {
-        setStepCounts(res.lastSummedValue.step_count);
-        setHeight(res.lastSummedValue.height_in_cms);
-        setWeight(res.lastSummedValue.weight);
-    })
+        setStepCounts(stepCount);
+        setHeight(173);
+        setWeight(63);
+    
         
 
     },[]);   

@@ -99,7 +99,7 @@ const page = () => {
           <p className="text-black text-2xl font-bold">Health History</p>
         </div>
         <div className="font-bold py-2 pb-10">
-          <Graph />
+          {/* <Graph /> */}
         </div>
       </div>
       <div className="h-[5rem]" />

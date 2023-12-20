@@ -17,11 +17,12 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
     const [url,setUrl] = useState('');
     const [userid,Setuserid] = useState('');
     console.log(name,"Name of the test")
-    const [stepcount,setStepcount] = useState(localStorage.getItem('stepCount')||0);
+    const [stepcount,setStepcount] = useState(localStorage.getItem('stepcounts')||0);
     const [token,SetToken] = useState({})
     const [record,toRecord] = useState(true)
+    const email = localStorage.getItem('email')||'';
 
-    console.log(localStorage.getItem('stepCount'),"Step Count")
+    console.log(localStorage.getItem('stepcounts'),"Step Count")
     useEffect(()=>{
 
 
@@ -31,7 +32,7 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
         SetToken(token);
 
    if (record)     {
-    InsertData(token.profile.userID,token.profile.displayName,token.profile.profilePhotoUrl)
+    InsertData(email,'','')
     toRecord(false)
 }
 
@@ -41,7 +42,7 @@ export default function NavigationBar({name,style}:{name:string,style:string}){
 
       async function InsertData (userid:any,displayName:any,url:any)
       {
-        await PostUserDetail(userid, displayName, 20,"male", url,name ,stepcount)
+        await PostUserDetail(userid, displayName, 20,"male", 'url',name ,stepcount)
       }
 
 

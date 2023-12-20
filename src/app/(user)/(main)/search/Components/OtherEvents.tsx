@@ -26,14 +26,16 @@ export interface Artwork {
 
 export default function OtherEvent({ name }: { name: string }) {
   const cookies = new Cookies();
-  const token = cookies.get('token');
+  
 
   const [data, setData] = React.useState<any>([])
   const [dataR, setDataR] = React.useState<any>([])
 
   
   React.useEffect(() => {
-    FetchWalkathon(token.profile.userID).then((fetchedData: any) => {
+    const email = localStorage.getItem("email") || ''
+
+    FetchWalkathon(email).then((fetchedData: any) => {
       console.log(fetchedData,"Idaan fetrch ")
       setData(fetchedData.unregistered)
       setDataR(fetchedData.registered)
