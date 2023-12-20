@@ -14,8 +14,8 @@ const Page = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Splash Screen</h1>
+    <div className='h-screen flex justify-center items-center'>
+      <h1>FitAware</h1>
       <p>Loading...</p>
     </div>
   );
